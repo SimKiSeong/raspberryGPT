@@ -100,7 +100,7 @@ def main():
     GPIO.setwarnings(False)
     GPIO.setup(led, GPIO.OUT)
     GPIO.setup(switch, GPIO.IN, GPIO.PUD_UP)
-
+    print("setup finish")
     try:
         while True:
             if GPIO.input(switch) == 0:
@@ -111,7 +111,7 @@ def main():
                         text = speech_to_text(audio_filename)
                         if text:
                             response = chat_with_gpt(text)
-                            print('GPT 응답:', response)
+                            print('GPT response:', response)
                             text_to_speech(response)
                         time.sleep(0.2)
                         break
